@@ -24,6 +24,19 @@ O arquivo `standalone/index.html` contém a aplicação inteira, incluindo estil
 
 Uma cópia compilada da aplicação completa está em `downloads/Nexo.zip`, com `Nexo.html` e orientações de uso. Extraia o ZIP e abra o HTML no seu navegador, mantendo o arquivo na mesma pasta. Não precisa de Node.js, terminal ou servidor. Para gerar uma nova cópia a partir do código atual, execute `npm run release:html`. O arquivo não contém registros de clientes ou serviços realizados. Ao usá-lo no navegador, mantenha backups JSON dos seus dados. A implantação online continua sendo feita pelo GitHub Pages, sem depender dessa cópia.
 
+### Publicar com subdomínio gratuito pelo Netlify Drop
+
+O pacote `downloads/Nexo-site.zip` contém a versão estática completa com `index.html` na raiz, pronta para hospedagem. Gere uma cópia atualizada com `npm run release:site`.
+
+1. Baixe e extraia `Nexo-site.zip` em uma pasta.
+2. Entre na sua conta do Netlify e abra <https://app.netlify.com/drop>.
+3. Arraste a pasta que contém `index.html` para a área de publicação.
+4. O Netlify fornece um endereço HTTPS com subdomínio gerado, como `nome-aleatorio.netlify.app`. Use o endereço que a plataforma informar após concluir a publicação para compartilhar o aplicativo. Esse nome é um exemplo, não um endereço já publicado.
+
+Não precisa executar o workflow do GitHub Actions para essa publicação manual. A conta e o envio do pacote são feitos no Netlify; nenhum acesso a essa hospedagem é fornecido automaticamente pela conexão GitHub do Codex.
+
+**Compartilhar o aplicativo não compartilha os registros.** Cada navegador guarda os seus próprios dados, sem login ou sincronização entre pessoas. Se várias pessoas precisarem trabalhar nos mesmos serviços do mesmo cliente, será necessário disponibilizar a versão com servidor, banco persistente e autenticação. Para levar seus dados para um novo endereço, exporte um backup JSON na versão anterior e importe em Configurações no novo site. O pacote publicado não inclui seus registros locais.
+
 ## Executar
 
 Requer **Node.js 22.13+** (recomendado: Node.js 24 LTS) e npm. O SQLite é nativo do Node e não precisa de outro serviço.
