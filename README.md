@@ -20,6 +20,10 @@ npm run test:standalone
 
 O arquivo `standalone/index.html` contém a aplicação inteira, incluindo estilos, ícones e fontes. Pode ser servido por qualquer hospedagem estática. Nenhuma chave de API ou senha é necessária, pois nessa modalidade não há um banco de dados público compartilhado.
 
+### Cópia para baixar
+
+Uma cópia compilada da aplicação completa está em `downloads/Nexo.zip`, com `Nexo.html` e orientações de uso. Extraia o ZIP e abra o HTML no seu navegador, mantendo o arquivo na mesma pasta. Não precisa de Node.js, terminal ou servidor. Para gerar uma nova cópia a partir do código atual, execute `npm run release:html`. O arquivo não contém registros de clientes ou serviços realizados. Ao usá-lo no navegador, mantenha backups JSON dos seus dados. A implantação online continua sendo feita pelo GitHub Pages, sem depender dessa cópia.
+
 ## Executar
 
 Requer **Node.js 22.13+** (recomendado: Node.js 24 LTS) e npm. O SQLite é nativo do Node e não precisa de outro serviço.
