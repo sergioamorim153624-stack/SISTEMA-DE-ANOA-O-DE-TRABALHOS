@@ -26,14 +26,18 @@ jobs:
         with:
           node-version: "24"
           cache: npm
+      - uses: actions/configure-pages@v5
       - run: npm ci --no-fund --no-audit
       - run: npm test
       - run: npm run build:standalone
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: standalone
       - uses: actions/deploy-pages@v4
         id: deployment
+      - name: Verificar página publicada
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 5 --max-time 20 "$PAGE_URL" -o /tmp/nexo-published.html
+          grep -q 'Nexo' /tmp/nexo-published.html
